@@ -9,6 +9,12 @@ VS Code / Cursor extension that **highlights Webflow `{{wf ...}}` CMS bindings**
 - Hover a highlighted span to see decoded **field path** and **Webflow type** when parseable (`path`, `type` from the inner JSON).
 - Toggle highlights without uninstalling.
 
+## Default Pill View
+
+![Default pill view showing decoded Webflow CMS fields](docs/assets/default-pill-view.png)
+
+The pills are editor-only decorations. Selecting or copying a pill still copies the original encoded Webflow binding text from the file, not the decoded label shown in the editor.
+
 ## Usage
 
 1. Open an `.html` file (or JSON / TS / JS per settings) that contains Webflow bindings such as:
