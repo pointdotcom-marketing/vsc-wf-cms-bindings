@@ -1,0 +1,88 @@
+{
+  "name": "webflow-cms-binding-highlighter",
+  "displayName": "Webflow CMS Binding Highlighter",
+  "description": "Highlights Webflow {{wf ...}} CMS bindings in HTML/JSON without changing file contents.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Webflow CMS Bindings",
+      "properties": {
+        "webflowCmsBindings.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Highlight Webflow {{wf ...}} bindings in the editor."
+        },
+        "webflowCmsBindings.displayMode": {
+          "type": "string",
+          "enum": [
+            "highlight",
+            "pill"
+          ],
+          "default": "highlight",
+          "description": "How Webflow bindings are displayed. 'highlight' keeps the encoded binding visible; 'pill' shows a decoded field-name pill while preserving the source text."
+        },
+        "webflowCmsBindings.languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "html",
+            "javascript",
+            "typescript",
+            "json",
+            "jsonc"
+          ],
+          "description": "Language IDs for which binding highlights are applied."
+        },
+        "webflowCmsBindings.debounceMs": {
+          "type": "number",
+          "default": 100,
+          "minimum": 0,
+          "description": "Delay in milliseconds before refreshing decorations after edits."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "webflowCmsBindings.toggleHighlights",
+        "title": "Webflow CMS Bindings: Toggle Highlights"
+      },
+      {
+        "command": "webflowCmsBindings.toggleDisplayMode",
+        "title": "Webflow CMS Bindings: Toggle Pill Display"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "mocha \"out/test/**/*.test.js\"",
+    "package": "vsce package --allow-missing-repository --skip-license --allow-package-all-secrets"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.6.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.3"
+  }
+}
