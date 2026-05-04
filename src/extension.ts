@@ -188,7 +188,7 @@ function getEnabled(): boolean {
 
 function getDisplayMode(): DisplayMode {
   const value = vscode.workspace.getConfiguration(CONFIG_SECTION).get<string>(KEY_DISPLAY_MODE);
-  return value === "pill" ? "pill" : "highlight";
+  return value === "highlight" ? "highlight" : "pill";
 }
 
 function getLanguageAllowlist(): string[] {

@@ -33,8 +33,8 @@
             "highlight",
             "pill"
           ],
-          "default": "highlight",
-          "description": "How Webflow bindings are displayed. 'highlight' keeps the encoded binding visible; 'pill' shows a decoded field-name pill while preserving the source text."
+          "default": "pill",
+          "description": "How Webflow bindings are displayed. 'pill' shows a decoded field-name pill while preserving the source text; 'highlight' keeps the encoded binding visible."
         },
         "webflowCmsBindings.languages": {
           "type": "array",
