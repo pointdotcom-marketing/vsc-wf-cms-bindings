@@ -60,11 +60,7 @@ Press **F5** in VS Code with this folder open (**Run Extension**) to launch an E
 
 Do not choose `out/`, `out/src/`, or any compiled output folder in **Developer: Install Extension from Location...**. Those folders do not contain `package.json`, so Cursor cannot treat them as a valid extension.
 
-For folder-based loading, choose the project root:
-
-```text
-/Users/austin/code/dxd/vscode-wf-cms-bindings
-```
+For folder-based loading, choose the main folder of the cloned repo, the folder that contains `package.json`.
 
 For a normal install, package a `.vsix` and install that file:
 
