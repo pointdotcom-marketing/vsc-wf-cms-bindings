@@ -11,7 +11,7 @@ VS Code / Cursor extension that **highlights Webflow `{{wf ...}}` CMS bindings**
 
 ## Default Pill View
 
-![Default pill view showing decoded Webflow CMS fields](docs/assets/default-pill-view.png)
+Default pill view showing decoded Webflow CMS fields
 
 The pills are editor-only decorations. Selecting or copying a pill still copies the original encoded Webflow binding text from the file, not the decoded label shown in the editor.
 
@@ -32,10 +32,10 @@ If you want to load the extension directly from this folder without packaging it
 For a more permanent installation, you can package the extension into a `.vsix` file:
 
 1. Build and package the extension:
-   ```bash
+  ```bash
    npm run compile
    npm run package
-   ```
+  ```
 2. Open the **Extensions** view in VS Code/Cursor.
 3. Click the **...** (More Actions) menu in the top right or run **Extensions: Install from VSIX...** from the Command Palette.
 4. Select the generated `webflow-cms-binding-highlighter-0.1.0.vsix`.
@@ -45,14 +45,12 @@ For a more permanent installation, you can package the extension into a `.vsix` 
 1. Open an `.html` file (or JSON / TS / JS per settings) that contains Webflow bindings such as:
 
 ```json
-"url": "{{wf {&quot;path&quot;:&quot;main-image&quot;,&quot;type&quot;:&quot;ImageRef&quot;\} }}"
+"url": "{{wf {"path":"main-image","type":"ImageRef"\} }}"
 ```
 
-2. Bindings are highlighted automatically when `webflowCmsBindings.enabled` is true.
-
-3. Command Palette: **Webflow CMS Bindings: Toggle Highlights** to enable or disable decorations.
-
-4. Command Palette: **Webflow CMS Bindings: Toggle Pill Display** to switch between decoded field-name pills and highlighted encoded text.
+1. Bindings are highlighted automatically when `webflowCmsBindings.enabled` is true.
+2. Command Palette: **Webflow CMS Bindings: Toggle Highlights** to enable or disable decorations.
+3. Command Palette: **Webflow CMS Bindings: Toggle Pill Display** to switch between decoded field-name pills and highlighted encoded text.
 
 By default, the extension visually hides the encoded binding and shows a decoded field-name pill. The file contents are unchanged.
 
@@ -70,12 +68,14 @@ To return to the default pill view:
 
 ## Settings
 
-| Setting | Default | Description |
-| -------- | ------- | ----------- |
-| `webflowCmsBindings.enabled` | `true` | Master switch for highlights. |
-| `webflowCmsBindings.displayMode` | `pill` | `pill` visually hides the encoded span and shows a decoded field-name pill while preserving source text. `highlight` keeps encoded bindings visible with a purple highlight. |
-| `webflowCmsBindings.languages` | `html`, `javascript`, `typescript`, `json`, `jsonc` | Language IDs to decorate. |
-| `webflowCmsBindings.debounceMs` | `100` | Delay after edits before refreshing decorations (ms). |
+
+| Setting                          | Default                                             | Description                                                                                                                                                                  |
+| -------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `webflowCmsBindings.enabled`     | `true`                                              | Master switch for highlights.                                                                                                                                                |
+| `webflowCmsBindings.displayMode` | `pill`                                              | `pill` visually hides the encoded span and shows a decoded field-name pill while preserving source text. `highlight` keeps encoded bindings visible with a purple highlight. |
+| `webflowCmsBindings.languages`   | `html`, `javascript`, `typescript`, `json`, `jsonc` | Language IDs to decorate.                                                                                                                                                    |
+| `webflowCmsBindings.debounceMs`  | `100`                                               | Delay after edits before refreshing decorations (ms).                                                                                                                        |
+
 
 ## Development
 
@@ -89,4 +89,4 @@ Press **F5** in VS Code with this folder open (**Run Extension**) to launch an E
 
 ## How it works
 
-The extension scans document text for spans starting with `{{wf`, parses the inner `{ ... }` object that Webflow embeds (including `&quot;` entity-encoded strings and `\}`-style closing braces), then applies editor decorations over each span. Underlying text — including entities — is unchanged; copy/paste and saves preserve Webflow’s encoding. In pill mode, the encoded span is visually hidden with decoration styling and the decoded field name is rendered as an editor-only attachment.
+The extension scans document text for spans starting with `{{wf`, parses the inner `{ ... }` object that Webflow embeds (including `"` entity-encoded strings and `\}`-style closing braces), then applies editor decorations over each span. Underlying text — including entities — is unchanged; copy/paste and saves preserve Webflow’s encoding. In pill mode, the encoded span is visually hidden with decoration styling and the decoded field name is rendered as an editor-only attachment.
