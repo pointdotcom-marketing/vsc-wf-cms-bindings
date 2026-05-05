@@ -11,7 +11,7 @@ VS Code / Cursor extension that **highlights Webflow `{{wf ...}}` CMS bindings**
 
 ## Default Pill View
 
-Default pill view showing decoded Webflow CMS fields
+![Default pill view showing decoded Webflow CMS fields](docs/assets/default-pill-view.png)
 
 The pills are editor-only decorations. Selecting or copying a pill still copies the original encoded Webflow binding text from the file, not the decoded label shown in the editor.
 
@@ -43,7 +43,7 @@ If you want to load the extension directly from the source code:
 1. Open an `.html` file (or JSON / TS / JS per settings) that contains Webflow bindings such as:
 
 ```json
-"url": "{{wf {"path":"main-image","type":"ImageRef"\} }}"
+"url": "{{wf {&quot;path&quot;:&quot;main-image&quot;,&quot;type&quot;:&quot;ImageRef&quot;\} }}"
 ```
 
 1. Bindings are highlighted automatically when `webflowCmsBindings.enabled` is true.
@@ -87,4 +87,4 @@ Press **F5** in VS Code with this folder open (**Run Extension**) to launch an E
 
 ## How it works
 
-The extension scans document text for spans starting with `{{wf`, parses the inner `{ ... }` object that Webflow embeds (including `"` entity-encoded strings and `\}`-style closing braces), then applies editor decorations over each span. Underlying text — including entities — is unchanged; copy/paste and saves preserve Webflow’s encoding. In pill mode, the encoded span is visually hidden with decoration styling and the decoded field name is rendered as an editor-only attachment.
+The extension scans document text for spans starting with `{{wf`, parses the inner `{ ... }` object that Webflow embeds (including `&quot;` entity-encoded strings and `\}`-style closing braces), then applies editor decorations over each span. Underlying text — including entities — is unchanged; copy/paste and saves preserve Webflow’s encoding. In pill mode, the encoded span is visually hidden with decoration styling and the decoded field name is rendered as an editor-only attachment.
