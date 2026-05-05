@@ -3,6 +3,7 @@
   "displayName": "Webflow CMS Binding Highlighter",
   "description": "Highlights Webflow CMS field bindings as inline pills in HTML, JSON, and JS files.",
   "version": "0.1.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/austin-thesing/vscode-wf-cms-bindings.git"
