@@ -1,12 +1,17 @@
 {
   "name": "webflow-cms-binding-highlighter",
   "displayName": "Webflow CMS Binding Highlighter",
-  "description": "Highlights Webflow {{wf ...}} CMS bindings in HTML/JSON without changing file contents.",
+  "description": "Highlights Webflow CMS field bindings as inline pills in HTML, JSON, and JS files.",
   "version": "0.1.0",
-  "publisher": "local",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/austin-thesing/vscode-wf-cms-bindings.git"
+  },
+  "publisher": "austin-thesing",
   "engines": {
     "vscode": "^1.85.0"
   },
+  "icon": "images/icon.png",
   "categories": [
     "Other"
   ],
@@ -75,7 +80,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
     "test": "mocha \"out/test/**/*.test.js\"",
-    "package": "vsce package --allow-missing-repository --skip-license --allow-package-all-secrets"
+    "package": "vsce package --skip-license --allow-package-all-secrets"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
