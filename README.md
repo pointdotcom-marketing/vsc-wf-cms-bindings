@@ -15,6 +15,31 @@ VS Code / Cursor extension that **highlights Webflow `{{wf ...}}` CMS bindings**
 
 The pills are editor-only decorations. Selecting or copying a pill still copies the original encoded Webflow binding text from the file, not the decoded label shown in the editor.
 
+## Install Locally
+
+### Folder-based Install (Recommended for Cursor)
+
+If you want to load the extension directly from this folder without packaging it:
+
+1. Open the **Command Palette** (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows/Linux).
+2. Search for and select **Developer: Install Extension from Location...**.
+3. Select the **root folder** of this repository (the one containing `package.json`).
+
+> **Note:** Do not choose `out/`, `out/src/`, or any subfolders. Cursor/VS Code needs the folder containing `package.json` to recognize it as a valid extension.
+
+### VSIX Install
+
+For a more permanent installation, you can package the extension into a `.vsix` file:
+
+1. Build and package the extension:
+   ```bash
+   npm run compile
+   npm run package
+   ```
+2. Open the **Extensions** view in VS Code/Cursor.
+3. Click the **...** (More Actions) menu in the top right or run **Extensions: Install from VSIX...** from the Command Palette.
+4. Select the generated `webflow-cms-binding-highlighter-0.1.0.vsix`.
+
 ## Usage
 
 1. Open an `.html` file (or JSON / TS / JS per settings) that contains Webflow bindings such as:
@@ -61,31 +86,6 @@ npm test
 ```
 
 Press **F5** in VS Code with this folder open (**Run Extension**) to launch an Extension Development Host with this extension loaded.
-
-## Install Locally
-
-### Folder-based Install (Recommended for Cursor)
-
-If you want to load the extension directly from this folder without packaging it:
-
-1. Open the **Command Palette** (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows/Linux).
-2. Search for and select **Developer: Install Extension from Location...**.
-3. Select the **root folder** of this repository (the one containing `package.json`).
-
-> **Note:** Do not choose `out/`, `out/src/`, or any subfolders. Cursor/VS Code needs the folder containing `package.json` to recognize it as a valid extension.
-
-### VSIX Install
-
-For a more permanent installation, you can package the extension into a `.vsix` file:
-
-1. Build and package the extension:
-   ```bash
-   npm run compile
-   npm run package
-   ```
-2. Open the **Extensions** view in VS Code/Cursor.
-3. Click the **...** (More Actions) menu in the top right or run **Extensions: Install from VSIX...** from the Command Palette.
-4. Select the generated `webflow-cms-binding-highlighter-0.1.0.vsix`.
 
 ## How it works
 
